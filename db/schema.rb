@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150629222207) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "people", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -24,8 +27,8 @@ ActiveRecord::Schema.define(version: 20150629222207) do
     t.integer "person_id"
   end
 
-  add_index "people_tasks", ["person_id"], name: "index_people_tasks_on_person_id"
-  add_index "people_tasks", ["task_id"], name: "index_people_tasks_on_task_id"
+  add_index "people_tasks", ["person_id"], name: "index_people_tasks_on_person_id", using: :btree
+  add_index "people_tasks", ["task_id"], name: "index_people_tasks_on_task_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
     t.string   "name"
