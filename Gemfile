@@ -6,4 +6,5 @@ gem 'pg', '0.18.2'
 
 group :development, :test do
   gem 'spring'
+  gem 'pry-rails'
 end
